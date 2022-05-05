@@ -1,0 +1,7 @@
+RGBLIGHT_ENABLE = yes
+
+OLED_ENABLE = yes
+
+VIA_ENABLE = yes
+
+ERRED_EXEC_ENABLE = yes

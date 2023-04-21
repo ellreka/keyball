@@ -9,7 +9,7 @@ Keyball39 is a 40% split keyboard with integrated 100% useful thumb trackball.
 
 ![01](images/kb39_001.jpg)
 
-## [Contents of Buid Guide for Keyball39]
+## [Contents of Build Guide for Keyball39]
 
   - [1. Parts Check](#1)
     - [1-1. Items included in the kit](#1-1)
@@ -24,7 +24,7 @@ Keyball39 is a 40% split keyboard with integrated 100% useful thumb trackball.
     - [3-4. Soldering Jumpers](#3-4)
     - [3-5. 4 pin sockets, TRRS socket, tact switch](#3-5)
     - [3-6. Soldering ProMicro](#3-6)
-    - [3-7. Writing and operation check of ProMico](#3-7)
+    - [3-7. Writing and operation check of ProMicro](#3-7)
     - [3-8. Soldering LEDs (option)](#3-8)
   - [4. Assemble the ball reader board](#4)
     - [4-1. Soldering the sensor](#4-1)
@@ -34,7 +34,7 @@ Keyball39 is a 40% split keyboard with integrated 100% useful thumb trackball.
   - [7. Assembly](#7)
     - [7-1. Install the protection plate](#7-1)
     - [7-2. Assemble the Top Plate](#7-2)
-    - [7-3. Assemble the Acrylic spacers and Bottom Plate](#7-3)
+    - [7-3. Assemble the Bottom Plate](#7-3)
   - [8. Trackball Installation](#8)
     - [8-1. Insert ball reader board](#8-1)
     - [8-2. Assemble the trackball case](#8-2)
@@ -79,7 +79,6 @@ Included parts in the Keyball39 Standard Kit are the following
 | OLED module | 2 pcs ||
 | Pin header (4 pin) | 2 pcs ||
 | Pin socket (4 pin) | 2 pcs ||
-| Various acrylic spacers|||
 | Spacer M2 7mm | more 13 pcs ||
 | Spacer M2 9mm | 4 pcs ||
 | Spacer M2 5mm | 5 pcs | For Thumb low-profile modification |
@@ -168,7 +167,7 @@ The tip of the soldering iron should be shaped like a bamboo spear, so that you 
 Now let's solder the diodes one by one.  
 All the diodes should be soldered on 【BACK SIDE ONLY】.
   
-The silk marks on the diodes look like the arrows in the picture below. There are 48 diodes in total.  
+The silk marks on the diodes look like the arrows in the picture below. There are 45 diodes in total.  
 Diodes have polarity, so be sure to install them in the correct orientation. The orientation is the direction where the straight line on the component matches the straight line on the end of the arrow on the silk mark.  
   
 Look carefully at the picture below to confirm the orientation.  
@@ -469,18 +468,10 @@ Next, the soldered middle board is also stacked, making sure that the screw hole
 ![114](images/kb39_112.jpg)
 
 <a id="7-3"></a>
-### 7-3. Assembling the bottom plates and Acrylic Spacers 
+### 7-3. Assembling the bottom plates
 
-Use the round acrylic spacers included in the kit. There are three types of acrylic spacers: one with a diameter of 8 mm, one with a diameter of 7 mm, and one with a C-shape.
-
-![114](images/kb39_111.jpg)
-
-Insert these into the metal spacer section as shown in the photo below. Basically, use the largest spacer with a diameter of 8 mm, and use a smaller size or C-shaped spacer in areas where it will not fit due to interference with surrounding parts.
-
-![114](images/kb39_113.jpg)
-
-Once the acrylic spacers are inserted all the way through, overlap the acrylic bottom plate from the back side and screw it in place.
-Next, attach the cushion rubberes to the four corners of the keyboard.
+Overlap the acrylic bottom plate from the back side and screw it in place.
+Next, attach the cushion rubbers to the four corners of the keyboard.
 
 <a id="8"></a>
 ## 8. Trackball installation 
@@ -579,6 +570,21 @@ The latest firmware for Keyball39 is available at [Github repository](https://gi
    - The trackball motion will change to scroll up and down while switching to layer 3.
    - Keyball supports [REMAP](https://remap-keys.app/configure), so you can check, change and write keymap easily.
    - The USB cable can be plugged in either left or right. However, since the keymap is written to the ProMicro on the side where the USB cable is plugged in, please review the keymap when replacing the cable for the first time.
+   - There are Special keys for Keyball users as below list. It is located on Layer 3. These key codes can be used for switching Cursor action to Scroll or Changing CPI and Speed of Scroll.
+
+| Keycode | Value on Remap | Description |
+|:-|:-|:-|
+| `KBC_RST` | `0x5DA5` | Reset Keyball configuration |
+| `KBC_SAVE` | `0x5DA6` | Persist Keyball configuration to EEPROM |
+| `CPI_I100` | `0x5DA7` | Increase 100 CPI (max 12000) |
+| `CPI_D100` | `0x5DA8` | Decrease 100 CPI (min 100) |
+| `CPI_I1K` | `0x5DA9` | Increase 1000 CPI (max 12000) |
+| `CPI_D1K` | `0x5DAA` | Decrease 1000 CPI (min 100) |
+| `SCRL_TO` | `0x5DAB` | Toggle scroll mode |
+| `SCRL_MO` | `0x5DAC` | Enable scroll mode when pressing |
+| `SCRL_DVI` | `0x5DAD` | Increase scroll divider (max D7 = 1/128) <- Most Scroll slow |
+| `SCRL_DVD` | `0x5DAE` | Decrease scroll divider (min 0 = 1/1) <- Most Scroll fast  |
+
 
 
 This concludes the Keyball39 build guide.

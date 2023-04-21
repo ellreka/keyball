@@ -37,7 +37,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #endif
 
 #ifndef KEYBALL_SCROLLSNAP_ENABLE
-#    define KEYBALL_SCROLLSNAP_ENABLE 1
+#    define KEYBALL_SCROLLSNAP_ENABLE 0
 #endif
 
 #ifndef KEYBALL_SCROLLSNAP_RESET_TIMER
@@ -45,7 +45,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #endif
 
 #ifndef KEYBALL_SCROLLSNAP_TENSION_THRESHOLD
-#    define KEYBALL_SCROLLSNAP_TENSION_THRESHOLD 12
+#    define KEYBALL_SCROLLSNAP_TENSION_THRESHOLD 0
 #endif
 
 //////////////////////////////////////////////////////////////////////////////

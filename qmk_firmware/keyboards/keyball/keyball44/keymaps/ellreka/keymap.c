@@ -89,8 +89,14 @@ static bool is_cancel_enter = false;
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        // case KC_LALT:
-        // case KC_LCTL:
+        case KC_LALT:
+        case KC_LCTL:
+            if(record->event.pressed) {
+                layer_on(1);
+            } else {
+                layer_off(1);
+            }
+            return true;
         case KC_LGUI:
             if(record->event.pressed) {
                 layer_on(1);
